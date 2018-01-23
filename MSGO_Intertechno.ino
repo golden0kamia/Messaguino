@@ -24,6 +24,9 @@ int period = 253;
 char unit = 0;
 char repeat = 4;
 char state[16] = 0;
+char menuSelec[] = {"1:Change adresse",
+					"2:Change period",
+					"3:Change repeat"};
 
 
 //---------- Functions ----------//
@@ -57,7 +60,15 @@ void setup()
 void loop() 
 {
 	lcd.print("Select Unit");
+	lcd.setCursor(13, 1);
+	lcd.print("Menu");
 	unit = key()-1;
+	if(unit == '*')
+	{
+		menu();
+	}
+	else if(unit == '#');
+	{}
 	transmitter.sendUnit(unit, !state[unit])
 }
 
@@ -76,13 +87,13 @@ char key()
 		digitalWrite(MX1, HIGH);
 			if(digitalRead(MY1))
 			{
-				out = '1';
+				out = 1;
 			}else if(digitalRead(MY2))
 			{
-				out = '4'
+				out = 4
 			}else if(digitalRead(MY3))
 			{
-				out = '7';
+				out = 7;
 			}else if(digitalRead(MY4))
 			{
 				out = '#';
@@ -91,28 +102,28 @@ char key()
 		digitalWrite(MX2, HIGH);
 			if(digitalRead(MY1))
 			{
-				out = '2';
+				out = 2;
 			}else if(digitalRead(MY2))
 			{
-				out = '5'
+				out = 5
 			}else if(digitalRead(MY3))
 			{
-				out = '8';
+				out = 8;
 			}else if(digitalRead(MY4))
 			{
-				out = '0';
+				out = 0;
 			}
 		digitalWrite(MX2, LOW);
 		digitalWrite(MX3, HIGH);
 			if(digitalRead(MY1))
 			{
-				out = '3';
+				out = 3;
 			}else if(digitalRead(MY2))
 			{
-				out = '6'
+				out = 6
 			}else if(digitalRead(MY3))
 			{
-				out = '9';
+				out = 9;
 			}else if(digitalRead(MY4))
 			{
 				out = '*';
