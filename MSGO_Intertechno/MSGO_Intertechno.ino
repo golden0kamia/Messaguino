@@ -1,5 +1,4 @@
 #include <math.h>
-#include <EEPROM.h>
 #include <LiquidCrystal.h>
 #include <NewRemoteReceiver.h>
 #include <NewRemoteTransmitter.h>
@@ -23,9 +22,9 @@ const int TX  = 13;	//
 //---------- Other global variable ----------//
 int i = 0;
 int addr = 0;
-double adresse = EEPROM.read(0);
-int period = EEPROM.read(1);
-char repeat = EEPROM:read(2);
+double adresse = 13709258;
+int period = 253;
+char repeat = 4;
 char unit = 0;
 char state[16];
 int selec = 0;
@@ -122,18 +121,18 @@ void sub_menu(int select)
 	{
 		case 0:
 			lcd.print("Enter Adresse");
-			EEPROM.write(0, keyInt),
+			//EEPROM.write(0, keyInt),
 			break;
 		case 1:
 			lcd.print("Enter period");
-			EEPROM.write(1, keyInt),
+			//EEPROM.write(1, keyInt),
 			break;
 		case 2:
 			lcd.print("Enter repeat");
-			EEPROM.write(2, keyInt),
+			//EEPROM.write(2, keyInt),
 			break;
 		case 3:
-			EEPROM.clear();
+			//EEPROM.clear();
 			break;
 		case 4:
 			break;
